@@ -32,7 +32,7 @@ module.exports.init = function() {
      use the listings router middleware for requests to the api 
      check the variables list above
   */
-  app.use('/api/listings');
+  app.use('/api/listings', listingsRouter);
 
 
    /* Request Handler for coordinates
@@ -46,7 +46,10 @@ module.exports.init = function() {
      Sends a response (res) to go to the homepage for all routes not specified */ 
   app.all('/*', function(req, res) {
    
-   /*Add YOUR CODE HERE 
+   /*Add YOUR CODE HERE */
+  app.use(express.static('public'));
+  res.sendFile(path.resolve('index.html'));
+   /*
       see https://expressjs.com/en/api.html#res.sendFile
       see https://nodejs.org/api/path.html
       The path.resolve() method returns a string and resolves a sequence of paths or path segments into an absolute path.

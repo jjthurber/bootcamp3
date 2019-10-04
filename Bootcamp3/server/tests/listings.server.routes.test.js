@@ -1,7 +1,8 @@
 var should = require('should'), 
     request = require('supertest'), 
     express = require('../config/express'), 
-    Listing = require('../models/listings.server.model.js');
+    Listing = require('../models/listings.server.model.js'),
+    mongoose = require ('mongoose');
 
 /* Global variables */
 var app, agent, listing, id;
